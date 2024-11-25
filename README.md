@@ -1,17 +1,13 @@
 # EXIF Metadata Extractor
 
 ## Table of Contents
-- Project Description
-- Authors
-- Course Information
-- Installation
-- Usage
-- Example
-- Code Overview
-  - extract_exif(file_path)
-  - generate_report(metadata_list, output_file)
-  - main(directory, output_file)
-- License
+- [Project Description](#project-description) 
+- [Authors](#authors)
+- [Course Information](#course-information)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Code Overview](#code-overview)
+- [License](#license)
 
 ## Project Description
 The EXIF Metadata Extractor is a Python-based utility that scans a given directory for image files and extracts their EXIF metadata. The program generates comprehensive details for each image, such as camera settings, timestamps, geolocation data, and more. This tool is useful for photographers, forensic analysts, and anyone who wants to gain insights into their images' metadata.
@@ -44,7 +40,7 @@ python exif_extractor.py <directory> [--output <output_file>]
 - `<directory>`: Path to the directory containing image files.
 - `--output <output_file>`: Optional path to save the metadata report as a CSV file.
 
-## Example
+### Example
 ```bash
 python exif_extractor.py /path/to/images --output metadata_report.csv
 ```
