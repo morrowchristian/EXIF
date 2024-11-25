@@ -1,4 +1,3 @@
-```markdown
 # EXIF Metadata Extractor
 
 ## Table of Contents
@@ -62,4 +61,3 @@ Scans a directory for images and extracts their EXIF metadata.
 
 ## License
 This project is licensed under the MIT License. See the LICENSE file for details.
-```
