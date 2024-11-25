@@ -1,87 +1,65 @@
-# EXIF Metadata Extractor  
+```markdown
+# EXIF Metadata Extractor
 
-## Project Description  
-The **EXIF Metadata Extractor** is a Python-based utility that scans a given directory for image files and extracts their EXIF metadata. The program generates comprehensive details for each image, such as camera settings, timestamps, geolocation data, and more. This tool is useful for photographers, forensic analysts, and anyone who wants to gain insights into their images' metadata.
+## Table of Contents
+- Project Description
+- Authors
+- Course Information
+- Installation
+- Usage
+- Example
+- Code Overview
+  - extract_exif(file_path)
+  - generate_report(metadata_list, output_file)
+  - main(directory, output_file)
+- License
 
----
+## Project Description
+The EXIF Metadata Extractor is a Python-based utility that scans a given directory for image files and extracts their EXIF metadata. The program generates comprehensive details for each image, such as camera settings, timestamps, geolocation data, and more. This tool is useful for photographers, forensic analysts, and anyone who wants to gain insights into their images' metadata.
 
-## Table of Contents  
-- [Project Description](#project-description)  
-- [Features](#features)  
-- [Installation](#installation)  
-- [Usage](#usage)  
-- [Authors](#authors)  
-- [Course Information](#course-information)  
+## Authors
+This project was collaboratively developed by:
+- Christian Morrow
+- Nyia Ware
+- Tiara Mack
 
----
+## Course Information
+- **Course:** CPSC 4100 - Survey of Programming Languages
+- **Instructor:** Dr. Robert Abiodun
+- **Due Date:** 30 November 2024
 
-## Features  
-- Extract EXIF metadata from all image files in a specified directory.  
-- Support for popular image formats, including JPEG and TIFF.  
-- Display comprehensive details such as:  
-  - Camera make and model.  
-  - Date and time the photo was taken.  
-  - GPS coordinates (if available).  
-  - Image dimensions and resolution.  
-- Generate a detailed report in human-readable or CSV format.  
+## Installation
+To use the EXIF Metadata Extractor, you need to have Python installed on your system along with the required libraries. You can install the necessary libraries using pip:
 
----
+```bash
+pip install Pillow
+```
 
-## Installation  
+## Usage
+To run the EXIF Metadata Extractor, use the following command:
 
-### Prerequisites  
-- Python 3.9 or higher.  
-- `Pillow` library for image processing.  
+```bash
+python exif_extractor.py <directory> [--output <output_file>]
+```
 
-### Steps  
-1. Clone the repository:  
-   ```bash  
-   git clone https://github.com/ChristianMorrow/EXIF_Metadata_Extractor.git  
-   cd EXIF_Metadata_Extractor  
-   ```  
-2. Install dependencies:  
-   ```bash  
-   pip install -r requirements.txt  
-   ```  
+- `<directory>`: Path to the directory containing image files.
+- `--output <output_file>`: Optional path to save the metadata report as a CSV file.
 
----
+## Example
+```bash
+python exif_extractor.py /path/to/images --output metadata_report.csv
+```
 
-## Usage  
+## Code Overview
+### extract_exif(file_path)
+Extracts EXIF metadata from an image file.
 
-1. Run the script with the target directory as an argument:  
-   ```bash  
-   python exif_extractor.py /path/to/images  
-   ```  
+### generate_report(metadata_list, output_file)
+Generates a CSV report from the extracted metadata.
 
-2. Output options:  
-   - Metadata details printed to the console.  
-   - Optional report saved in CSV format:  
-     ```bash  
-     python exif_extractor.py /path/to/images --output report.csv  
-     ```  
+### main(directory, output_file)
+Scans a directory for images and extracts their EXIF metadata.
 
-3. View or analyze the generated CSV using any spreadsheet tool for further insights.  
-
----
-
-## Authors  
-This project was collaboratively developed by:  
-- **Christian Morrow**  
-- **Nyia Ware**  
-- **Tiara Mack**  
-
----
-
-## Course Information  
-- **Course**: CPSC 4100 - Survey of Programming Languages  
-- **Instructor**: Dr. Robert Abiodun  
-- **Due Date**: 30 November 2024  
-
----
-
-## Contributions  
-We welcome contributions to this project! Please fork the repository, make your changes, and submit a pull request for review.  
-
---- 
-
-Feel free to customize this `README.md` further to fit any additional needs!
+## License
+This project is licensed under the MIT License. See the LICENSE file for details.
+```
