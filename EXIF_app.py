@@ -1,5 +1,3 @@
-# DRAG AND DROP NEEDS WORK. ISN'T WORKING ON MY END
-
 import os
 import tkinter as tk
 from tkinter import filedialog
