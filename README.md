@@ -39,7 +39,7 @@ To use the EXIF Metadata Extractor, ensure you have Python (version 3.6 or later
    ```
 2. Install the required library:
    ```bash
-   pip3 install Pillow
+   brew install Pillow
    ```
 
 #### Linux
