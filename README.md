@@ -1,114 +1,149 @@
 # EXIF Metadata Extractor
 
-## Table of Contents
-- [Project Description](#project-description) 
-- [Authors](#authors)
-- [Course Information](#course-information)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Code Overview](#code-overview)
+## Description
+The **EXIF Metadata Extractor** is a Python-based tool designed to analyze directories for image files and extract their EXIF metadata. It provides detailed information about each image, including camera settings, timestamps, geolocation data, and more. This utility is invaluable for photographers, forensic analysts, and anyone seeking to analyze image metadata effectively.
 
-## Project Description
-The **EXIF Metadata Extractor** is a Python-based tool designed to scan directories for image files and extract their EXIF metadata. This utility provides detailed information for each image, including camera settings, timestamps, geolocation data, and more. It is an invaluable resource for photographers, forensic analysts, and anyone seeking to analyze image metadata effectively.
+---
+
+## Features
+- **EXIF Metadata Extraction**: Extract key details from image files like `JPG`, `JPEG`, and `TIFF`.
+- **CSV Report Generation**: Save extracted metadata as a CSV file for further analysis.
+- **Drag-and-Drop Functionality**: Easily add image files by dragging and dropping them into the application.
+- **Cross-Platform GUI**: A user-friendly interface built using Tkinter and TkinterDnD.
+
+---
 
 ## Authors
-This project was collaboratively developed by:
-- **Christian Morrow**
-- **Nyia Ware**
-- **Tiara Mack**
+- Christian Morrow  
+- Nyia Ware  
+- Tiara Mack  
 
-## Course Information
-- **Course:** CPSC 4100 - Survey of Programming Languages
-- **Instructor:** Dr. Robert Abiodun
-- **Due Date:** 30 November 2024
+**Course**: CPSC 4100 - Survey of Programming Languages  
+**Instructor**: Dr. Robert Abiodun  
+**Due Date**: November 30, 2024  
+
+---
 
 ## Installation
-To use the EXIF Metadata Extractor, ensure you have Python (version 3.6 or later) installed on your system. Follow the platform-specific steps below to set up the required dependencies:
 
-#### Windows
-1. Download and install Python from [python.org](https://www.python.org/downloads/), ensuring you check the box to add Python to PATH during installation.
-2. Open the Command Prompt and run the following command to install the required library:
-   ```cmd
-   pip install Pillow
-   ```
+### Prerequisites
+1. **Python**: Ensure Python 3.8 or later is installed.
+2. **PIP**: Ensure you have Python's package manager installed.
 
-#### Mac
-1. Verify Python is installed by running `python3 --version` in the Terminal. If not, install it via [Homebrew](https://brew.sh/):
-   ```bash
-   brew install python
-   ```
-2. Install the required library:
-   ```bash
-   brew install Pillow
-   ```
+### Install Required Libraries
+Run the following command to install the dependencies:
+```bash
+pip install pillow tkinterdnd2
+```
 
-#### Linux
-1. Use your package manager to install Python. For example, on Debian-based systems:
+If you encounter issues:
+- **Pillow Installation**: Refer to the [Pillow documentation](https://pillow.readthedocs.io/en/stable/installation.html) for troubleshooting.
+- **TkinterDnD2 Installation**: Check the [TkinterDnD2 GitHub page](https://github.com/pearu/tkinterdnd2) for guidance.
+
+---
+
+## Setup Instructions
+
+### Windows
+1. Clone the repository:
    ```bash
-   sudo apt update
-   sudo apt install python3 python3-pip
+   git clone https://github.com/your-repo/EXIF-Metadata-Extractor.git
+   cd EXIF-Metadata-Extractor
    ```
-2. Install the required library:
+2. Run the application:
    ```bash
-   pip3 install Pillow
+   python exif_extractor.py
    ```
+3. If TkinterDnD2 installation fails, see [this guide](https://github.com/pearu/tkinterdnd2#installation).
+
+### macOS
+1. Install Python dependencies as above.
+2. If drag-and-drop functionality doesn't work, grant permissions in **System Preferences** → **Security & Privacy** → **Accessibility**.
+3. Run the application:
+   ```bash
+   python exif_extractor.py
+   ```
+4. For macOS-specific Tkinter issues, check the [Apple Developer Community](https://developer.apple.com/forums/) for help.
+
+### Linux
+1. Install required libraries:
+   ```bash
+   sudo apt install python3-tk python3-pil
+   pip install tkinterdnd2
+   ```
+2. Run the application:
+   ```bash
+   python3 exif_extractor.py
+   ```
+3. Refer to [Tkinter Troubleshooting on Linux](https://wiki.python.org/moin/TkInter) for help with installation issues.
 
 ---
 
 ## Usage
-Run the script from the command line to extract EXIF metadata from images in a specified directory. The script works on Windows, Mac, and Linux. Follow the platform-specific instructions below:
 
-#### Windows
-1. Open the Command Prompt.
-2. Navigate to the directory containing the script using the `cd` command.
-3. Run the script using:
-   ```cmd
-   python exif_extractor.py <directory> [--output <output_file>]
-   ```
-   Replace `<directory>` with the path to the folder containing your images, and optionally specify an output file path with `--output`.
+1. **Launch the Application**: Run the script with `python exif_extractor.py`.
+2. **Add Files**: Use the "Browse File" button or drag-and-drop image files into the labeled area.
+3. **Process Files**: The application will display logs for each processed file in the text box.
+4. **Save Reports**: Click the "Save Report" button to export metadata to a CSV file.
 
-   Example:
-   ```cmd
-   python exif_extractor.py C:\Users\YourName\Pictures --output metadata_report.csv
-   ```
-
-#### Mac/Linux
-1. Open the Terminal.
-2. Navigate to the directory containing the script using the `cd` command.
-3. Run the script using:
-   ```bash
-   python3 exif_extractor.py <directory> [--output <output_file>]
-   ```
-   Replace `<directory>` with the path to the folder containing your images, and optionally specify an output file path with `--output`.
-
-   Example:
-   ```bash
-   python3 exif_extractor.py /Users/YourName/Pictures --output metadata_report.csv
-   ```
+---
 
 ## Code Overview
 
-The **EXIF Metadata Extractor** script is organized into three main functions for clarity and functionality:
+### Main Components
+1. **`extract_exif`**: Extracts EXIF metadata from image files using the PIL library.
+2. **`generate_report`**: Saves metadata into a CSV file.
+3. **GUI**: Built using Tkinter, includes buttons for browsing files, saving reports, and drag-and-drop functionality.
 
-1. **`extract_exif(file_path)`**  
-   - **Purpose**: Extracts EXIF metadata from a single image file.  
-   - **Parameters**:  
-     - `file_path` (str): Path to the image file.  
-   - **Returns**: A dictionary containing EXIF metadata.  
+### Known Issue
+- **Drag-and-Drop**: May not work on some macOS systems due to OS-level restrictions. Run the application with elevated permissions or refer to [TkinterDnD2 issues](https://github.com/pearu/tkinterdnd2/issues).
 
-2. **`generate_report(metadata_list, output_file)`**  
-   - **Purpose**: Generates a CSV report from the extracted metadata.  
-   - **Parameters**:  
-     - `metadata_list` (list): A list of dictionaries containing metadata for each image.  
-     - `output_file` (str): Path to save the generated CSV file.  
+---
 
-3. **`main(directory, output_file)`**  
-   - **Purpose**: Scans a directory for images, extracts their EXIF metadata, and optionally saves the metadata to a CSV file.  
-   - **Parameters**:  
-     - `directory` (str): Path to the directory containing image files.  
-     - `output_file` (str, optional): Path to save the metadata report as a CSV file.  
+## Examples
 
-   **Key Workflow**:  
-   - Recursively searches the given directory for image files (`.jpg`, `.jpeg`, `.tiff`).  
-   - Extracts EXIF metadata for each image.  
-   - Outputs metadata either to the console or to a CSV file (if `--output` is specified).  
+### Extract Metadata
+1. Drag a `.jpg` file into the drag-and-drop area.
+2. Check the log for details like:
+   ```
+   Processed example.jpg
+   ```
+
+### Save a Report
+1. Click "Save Report".
+2. Specify the output file location:
+   ```
+   C:\Users\<User>\Documents\metadata_report.csv
+   ```
+
+---
+
+## Troubleshooting
+
+1. **Python Installation Issues**:
+   - **Windows**: Use [Python's Windows installation guide](https://docs.python.org/3/using/windows.html).
+   - **macOS**: Refer to [Python on macOS](https://docs.python.org/3/using/mac.html).
+   - **Linux**: Follow [Linux installation instructions](https://docs.python.org/3/using/unix.html).
+
+2. **Pillow Issues**:
+   - Refer to the [Pillow troubleshooting guide](https://pillow.readthedocs.io/en/stable/installation.html#troubleshooting).
+
+3. **Tkinter Issues**:
+   - [General Tkinter Installation Help](https://tkdocs.com/tutorial/install.html).
+
+4. **TkinterDnD2 Errors**:
+   - Review [TkinterDnD2 issues](https://github.com/pearu/tkinterdnd2/issues) on GitHub.
+
+5. **Drag-and-Drop Not Working**:
+   - macOS: Check [System Preferences for Accessibility Permissions](https://support.apple.com/en-us/HT201899).
+   - Windows/Linux: Verify file path handling by adding debug logs in the `handle_drop` function.
+
+---
+
+## License
+This project is licensed under the [MIT License](https://opensource.org/licenses/MIT).
+
+---
+
+## Contributions
+If you encounter issues or have suggestions, please submit a pull request or file an issue in this repository.  
