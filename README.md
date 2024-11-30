@@ -61,7 +61,7 @@ If you encounter issues:
 2. If drag-and-drop functionality doesn't work, grant permissions in **System Preferences** → **Security & Privacy** → **Accessibility**.
 3. Run the application:
    ```bash
-   python exif_extractor.py
+   python EXIF_app.py
    ```
 4. For macOS-specific Tkinter issues, check the [Apple Developer Community](https://developer.apple.com/forums/) for help.
 
@@ -73,7 +73,7 @@ If you encounter issues:
    ```
 2. Run the application:
    ```bash
-   python3 exif_extractor.py
+   python3 EXIF_app.py
    ```
 3. Refer to [Tkinter Troubleshooting on Linux](https://wiki.python.org/moin/TkInter) for help with installation issues.
 
