@@ -47,12 +47,12 @@ If you encounter issues:
 ### Windows
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-repo/EXIF-Metadata-Extractor.git
-   cd EXIF-Metadata-Extractor
+   git clone https://github.com/morrowchristian/EXIF.git
+   cd EXIF
    ```
 2. Run the application:
    ```bash
-   python exif_extractor.py
+   python exif.py
    ```
 3. If TkinterDnD2 installation fails, see [this guide](https://github.com/pearu/tkinterdnd2#installation).
 
