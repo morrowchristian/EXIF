@@ -52,7 +52,7 @@ If you encounter issues:
    ```
 2. Run the application:
    ```bash
-   python exif.py
+   python EXIF_app.py
    ```
 3. If TkinterDnD2 installation fails, see [this guide](https://github.com/pearu/tkinterdnd2#installation).
 
